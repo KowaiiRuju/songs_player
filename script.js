@@ -394,7 +394,13 @@ function setupEventListeners() {
     progressInput.addEventListener('input', seekTrack);
     audioPlayer.addEventListener('timeupdate', updateProgress);
     audioPlayer.addEventListener('loadedmetadata', updateDuration);
-    audioPlayer.addEventListener('ended', nextTrack);
+    
+    // The corrected 'ended' listener
+    audioPlayer.addEventListener('ended', () => {
+        // Force the app to stay in "playing" mode before loading the next track
+        playerState.isPlaying = true; 
+        nextTrack();
+    });
     
     // Audio Events
     audioPlayer.addEventListener('play', () => {
