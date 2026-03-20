@@ -16,7 +16,6 @@ let tracks = [
         artist: 'Billie Eilish',
         url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971439/Billie_Eilish_-_WILDFLOWER_Official_Lyric_Video_fnoc8b.mp3'
     },
-    
     {
         title: 'Ikaw At Ako Pa Rin',
         artist: 'TJ Monterde ft KZ Tandingan',
@@ -27,7 +26,6 @@ let tracks = [
         artist: 'TJ Monterde',
         url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971435/TJ_Monterde_-_Kung_Siya_Man_Official_Lyric_Video_akqjqg.mp3'
     },
-
     {
         title: 'Tulad Mo',
         artist: 'TJ Monterde',
@@ -181,14 +179,22 @@ function showPlayerView() {
 // ============================================
 
 function renderHomeView() {
-    // Recently Played - show first 3 tracks
+    // Recently Played - show first 3 tracks with their actual titles
     recentlyPlayedGrid.innerHTML = '';
     const recentlyPlayedTracks = tracks.slice(0, 3);
     
     recentlyPlayedTracks.forEach((track, index) => {
         const item = document.createElement('div');
         item.className = 'album-item';
-        item.innerHTML = `<div class="album-item-cover">🎵</div>`;
+        
+        // Fix: Make the title show up instead of just the music note
+        item.innerHTML = `
+            <div style="text-align: center; width: 100%; overflow: hidden;">
+                <div class="album-item-cover" style="font-size: 24px; margin-bottom: 5px;">🎵</div>
+                <div style="font-size: 11px; font-weight: 600; color: #e2e8f0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 8px;">${track.title}</div>
+            </div>
+        `;
+        
         item.addEventListener('click', () => {
             loadTrack(index);
             showPlayerView();
@@ -397,6 +403,7 @@ function setupEventListeners() {
         cdContainer.classList.add('playing');
     });
     
+    // Audio Pause
     audioPlayer.addEventListener('pause', () => {
         playerState.isPlaying = false;
         updatePlayButtons(false);
@@ -413,7 +420,6 @@ function setupEventListeners() {
             if (view === 'main') {
                 showHomeView();
             }
-            // Other views (search, favorites, profile) not yet implemented
         });
     });
     
