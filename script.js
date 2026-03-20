@@ -16,6 +16,23 @@ let tracks = [
         artist: 'Billie Eilish',
         url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971439/Billie_Eilish_-_WILDFLOWER_Official_Lyric_Video_fnoc8b.mp3'
     },
+    
+    {
+        title: 'Ikaw At Ako Pa Rin',
+        artist: 'TJ Monterde ft KZ Tandingan',
+        url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971319/TJ_Monterde_Ft._KZ_Tandingan_-_Ikaw_At_Ako_Pa_Rin_-_Official_Lyric_Video_zz2ucs.mp3'
+    },
+    {
+        title: 'Kung Siya Man',
+        artist: 'TJ Monterde',
+        url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971435/TJ_Monterde_-_Kung_Siya_Man_Official_Lyric_Video_akqjqg.mp3'
+    },
+
+    {
+        title: 'Tulad Mo',
+        artist: 'TJ Monterde',
+        url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971393/TJ_Monterde_-_Tulad_Mo_Official_Music_Video_m43xy4.mp3'
+    },
     {
         title: 'Everything',
         artist: 'Michael Bublé',

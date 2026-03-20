@@ -424,6 +424,7 @@ body {
 .control-btn.play-btn.large {
     width: 70px;
     height: 70px;
+    flex-shrink: 0;
     background: linear-gradient(135deg, #3b82f6, #1e40af);
     border-radius: 50%;
     display: flex;
