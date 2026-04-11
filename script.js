@@ -196,12 +196,14 @@ albums.forEach(album => {
             albumId: album.id,
             albumName: album.name,
             albumEmoji: album.emoji,
-            albumColor: album.color,
-            globalIndex: allTracks.length
+            albumColor: album.color
         });
     });
-    // Re-stamp globalIndex after push
 });
+
+// Sort all tracks alphabetically by title
+allTracks.sort((a, b) => a.title.localeCompare(b.title));
+
 // Fix globalIndex
 allTracks = allTracks.map((t, i) => ({ ...t, globalIndex: i }));
 
@@ -229,7 +231,8 @@ const state = {
     isShuffled: false,
     isRepeating: false,
     volume: 70,
-    liked: loadLikes()
+    liked: loadLikes(),
+    queue: []
 };
 
 // ============================================================
@@ -279,8 +282,9 @@ function preloadDurations() {
         const audio = new Audio();
         audio.addEventListener('loadedmetadata', () => {
             trackDurations[idx] = audio.duration;
-            const durEl = document.getElementById(`dur-${idx}`);
-            if (durEl) durEl.textContent = fmt(audio.duration);
+            document.querySelectorAll(`[id="dur-${idx}"]`).forEach(el => {
+                el.textContent = fmt(audio.duration);
+            });
         });
         audio.src = track.url;
     });
@@ -311,48 +315,56 @@ function renderSidebarAlbums() {
 // ============================================================
 //  HOME: FLAT SONG LIST (grouped by album)
 // ============================================================
-function renderAllAlbumSections() {
+function renderAllAlbumSections(filterAlbumId = null) {
     const container = $('allAlbumSections');
     container.innerHTML = '';
 
-    // Build one unified song table with album group headers
     const wrapper = document.createElement('div');
     wrapper.className = 'flat-song-list';
 
-    albums.forEach(album => {
-        // Skip albums with no real URL
-        const realTracks = album.tracks.filter(t => t.url);
-        if (realTracks.length === 0) return;
+    // Group header (either All Songs or specific Album)
+    let headerName = "All Songs";
+    let headerEmoji = "💽";
+    let headerColor = "linear-gradient(135deg, var(--accent-glow), var(--bg-elevated))";
+    
+    if (filterAlbumId) {
+        const album = albums.find(a => a.id === filterAlbumId);
+        if (album) {
+            headerName = album.name;
+            headerEmoji = album.emoji;
+            headerColor = album.color;
+        }
+    }
 
-        // Album group header row (anchor for sidebar scroll)
-        const groupHeader = document.createElement('div');
-        groupHeader.className = 'flat-group-header';
-        groupHeader.id = 'section-' + album.id;
-        groupHeader.innerHTML = `
-            <div class="flat-group-dot" style="background:${album.color};">${album.emoji}</div>
-            <span class="flat-group-name">${album.name}</span>
-            <span class="flat-group-count">${realTracks.length} songs</span>
-            <button class="section-play-all flat-play-all" data-album-id="${album.id}">
-                <i class="fas fa-play"></i> Play All
-            </button>
-        `;
-        groupHeader.querySelector('.flat-play-all').addEventListener('click', (e) => {
-            e.stopPropagation();
-            const firstIdx = allTracks.findIndex(t => t.albumId === album.id && t.url);
-            if (firstIdx !== -1) loadAndPlay(firstIdx);
-        });
-        wrapper.appendChild(groupHeader);
+    const realTracks = filterAlbumId 
+        ? allTracks.filter(t => t.albumId === filterAlbumId && t.url)
+        : allTracks.filter(t => t.url);
 
-        // Song rows
-        const table = document.createElement('div');
-        table.className = 'song-table';
-        table.id = 'table-' + album.id;
-        realTracks.forEach((track, i) => {
-            const globalIdx = allTracks.findIndex(t => t.albumId === album.id && t.title === track.title);
-            renderSongRow(table, track, i + 1, globalIdx);
-        });
-        wrapper.appendChild(table);
+    const groupHeader = document.createElement('div');
+    groupHeader.className = 'flat-group-header';
+    groupHeader.innerHTML = `
+        <div class="flat-group-dot" style="background:${headerColor};">${headerEmoji}</div>
+        <span class="flat-group-name">${headerName}</span>
+        <span class="flat-group-count">${realTracks.length} songs</span>
+        <button class="section-play-all flat-play-all">
+            <i class="fas fa-play"></i> Play All
+        </button>
+    `;
+    groupHeader.querySelector('.flat-play-all').addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (realTracks.length > 0) {
+            loadAndPlay(realTracks[0].globalIndex);
+        }
     });
+    wrapper.appendChild(groupHeader);
+
+    // Song rows
+    const table = document.createElement('div');
+    table.className = 'song-table';
+    realTracks.forEach((track, i) => {
+        renderSongRow(table, track, i + 1, track.globalIndex);
+    });
+    wrapper.appendChild(table);
 
     container.appendChild(wrapper);
 }
@@ -363,9 +375,11 @@ function renderSongRow(container, track, num, globalIdx) {
     row.id = `row-${globalIdx}`;
     row.dataset.idx = globalIdx;
 
-    const isLiked = state.liked.has(globalIdx);
+    const isLiked = state.liked.has(track.url);
     const likeIcon = isLiked ? 'fas fa-heart' : 'far fa-heart';
     const likeClass = isLiked ? 'song-action-btn like-btn liked' : 'song-action-btn like-btn';
+
+    const durationText = trackDurations[globalIdx] ? fmt(trackDurations[globalIdx]) : '—';
 
     row.innerHTML = `
         <div class="song-row-num">
@@ -376,7 +390,7 @@ function renderSongRow(container, track, num, globalIdx) {
             <div class="song-row-title">${track.title}</div>
             <div class="song-row-artist">${track.artist}</div>
         </div>
-        <div class="song-row-duration" id="dur-${globalIdx}">—</div>
+        <div class="song-row-duration" id="dur-${globalIdx}">${durationText}</div>
         <div class="song-row-actions">
             <button class="${likeClass}" data-idx="${globalIdx}" title="Like"><i class="${likeIcon}"></i></button>
         </div>
@@ -390,7 +404,7 @@ function renderSongRow(container, track, num, globalIdx) {
 
     row.querySelector('.like-btn').addEventListener('click', (e) => {
         e.stopPropagation();
-        toggleLike(globalIdx, row.querySelector('.like-btn'));
+        toggleLike(track.url, row.querySelector('.like-btn'));
     });
 
     container.appendChild(row);
@@ -435,9 +449,11 @@ function setupSearch() {
             searchResultsContainer.style.display = 'none';
             allAlbumSections.style.display = '';
             searchClear.style.display = 'none';
+            if ($('searchClearMobile')) $('searchClearMobile').style.display = 'none';
             return;
         }
         searchClear.style.display = '';
+        if ($('searchClearMobile')) $('searchClearMobile').style.display = '';
         const matches = allTracks.filter(t =>
             t.title.toLowerCase().includes(query) ||
             t.artist.toLowerCase().includes(query) ||
@@ -458,19 +474,35 @@ function setupSearch() {
         });
     }
 
-    searchInput.addEventListener('input', () => doSearch(searchInput.value));
+    const mobileInput = $('searchInputMobile');
+
+    searchInput.addEventListener('input', () => {
+        if (mobileInput) mobileInput.value = searchInput.value;
+        doSearch(searchInput.value);
+    });
+    
     searchClear.addEventListener('click', () => {
         searchInput.value = '';
+        if (mobileInput) mobileInput.value = '';
         doSearch('');
         searchInput.focus();
     });
 
     // Mobile search sync
-    const mobileInput = $('searchInputMobile');
     if (mobileInput) {
         mobileInput.addEventListener('input', () => {
             searchInput.value = mobileInput.value;
             doSearch(mobileInput.value);
+        });
+    }
+
+    const searchClearMobile = $('searchClearMobile');
+    if (searchClearMobile && mobileInput) {
+        searchClearMobile.addEventListener('click', () => {
+            mobileInput.value = '';
+            searchInput.value = '';
+            doSearch('');
+            mobileInput.focus();
         });
     }
 }
@@ -481,15 +513,14 @@ function setupSearch() {
 function scrollToAlbum(albumId) {
     showPage('home');
     setNavActive('navHome');
-    const section = document.getElementById('section-' + albumId);
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // Highlight sidebar item
-        document.querySelectorAll('.album-nav-item').forEach(el => el.classList.remove('active'));
-        const sidebarItem = document.querySelector(`[data-album-id="${albumId}"]`);
-        if (sidebarItem) sidebarItem.classList.add('active');
-        document.querySelector('.app-wrapper').classList.remove('sidebar-open');
-    }
+    
+    // Highlight sidebar item
+    document.querySelectorAll('.album-nav-item').forEach(el => el.classList.remove('active'));
+    const sidebarItem = document.querySelector(`[data-album-id="${albumId}"]`);
+    if (sidebarItem) sidebarItem.classList.add('active');
+    
+    renderAllAlbumSections(albumId); // render filtered by album
+    document.querySelector('.app-wrapper').classList.remove('sidebar-open');
 }
 
 // ============================================================
@@ -539,23 +570,29 @@ function loadAndPlay(index) {
 }
 
 function updateFavBtn() {
-    const liked = state.liked.has(state.currentIndex);
+    const track = allTracks[state.currentIndex];
+    if (!track) return;
+    const liked = state.liked.has(track.url);
     playerFavBtn.className = 'player-fav-btn' + (liked ? ' liked' : '');
     playerFavBtn.innerHTML = liked ? '<i class="fas fa-heart"></i>' : '<i class="far fa-heart"></i>';
 }
 
-function toggleLike(idx, btn) {
-    if (state.liked.has(idx)) {
-        state.liked.delete(idx);
+function toggleLike(trackUrl, btn) {
+    if (state.liked.has(trackUrl)) {
+        state.liked.delete(trackUrl);
         btn.classList.remove('liked');
         btn.innerHTML = '<i class="far fa-heart"></i>';
     } else {
-        state.liked.add(idx);
+        state.liked.add(trackUrl);
         btn.classList.add('liked');
         btn.innerHTML = '<i class="fas fa-heart"></i>';
     }
     saveLikes(state.liked);
-    if (idx === state.currentIndex) updateFavBtn();
+    
+    const track = allTracks[state.currentIndex];
+    if (track && track.url === trackUrl) {
+        updateFavBtn();
+    }
 }
 
 // ============================================================
@@ -582,6 +619,12 @@ function prev() {
 }
 
 function next() {
+    if (state.queue.length > 0) {
+        const nextIdx = state.queue.shift();
+        renderQueue();
+        loadAndPlay(nextIdx);
+        return;
+    }
     if (state.isShuffled) {
         let r;
         do { r = Math.floor(Math.random() * allTracks.length); }
@@ -640,8 +683,17 @@ function setupEventListeners() {
     // Like in player bar
     playerFavBtn.addEventListener('click', () => {
         if (state.currentIndex === -1) return;
-        const btn = document.querySelector(`[data-idx="${state.currentIndex}"].like-btn`);
-        toggleLike(state.currentIndex, btn || playerFavBtn);
+        const track = allTracks[state.currentIndex];
+        
+        toggleLike(track.url, playerFavBtn);
+        
+        // Sync the list view button if it's currently rendered
+        const rowBtn = document.querySelector(`.song-row[data-idx="${state.currentIndex}"] .like-btn`);
+        if (rowBtn) {
+            const isLiked = state.liked.has(track.url);
+            rowBtn.className = 'song-action-btn like-btn' + (isLiked ? ' liked' : '');
+            rowBtn.innerHTML = isLiked ? '<i class="fas fa-heart"></i>' : '<i class="far fa-heart"></i>';
+        }
     });
 
     // Progress
@@ -663,8 +715,9 @@ function setupEventListeners() {
     audio.addEventListener('loadedmetadata', () => {
         durationEl.textContent = fmt(audio.duration);
         // Update track duration in row
-        const el = document.getElementById(`dur-${state.currentIndex}`);
-        if (el) el.textContent = fmt(audio.duration);
+        document.querySelectorAll(`[id="dur-${state.currentIndex}"]`).forEach(el => {
+            el.textContent = fmt(audio.duration);
+        });
         trackDurations[state.currentIndex] = audio.duration;
     });
 
@@ -726,10 +779,33 @@ function setupEventListeners() {
         }
     });
 
+    $('sidebarOverlay').addEventListener('click', () => {
+        document.querySelector('.app-wrapper').classList.remove('sidebar-open');
+    });
+
+    // Collapse when outside is clicked (PC & Mobile)
+    document.addEventListener('click', (e) => {
+        const wrapper = document.querySelector('.app-wrapper');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        
+        if (window.innerWidth > 768) {
+            // PC: collapse if clicking outside sidebar
+            if (!wrapper.classList.contains('sidebar-collapsed') && 
+                !sidebar.contains(e.target) && 
+                !sidebarToggle.contains(e.target)) {
+                wrapper.classList.add('sidebar-collapsed');
+            }
+        }
+    });
+
     // Nav buttons
     $('navHome').addEventListener('click', () => {
         showPage('home');
         setNavActive('navHome');
+        // Clear filter
+        document.querySelectorAll('.album-nav-item').forEach(el => el.classList.remove('active'));
+        renderAllAlbumSections(); // Full list
         document.querySelector('.app-wrapper').classList.remove('sidebar-open');
     });
 
@@ -738,6 +814,27 @@ function setupEventListeners() {
         $('pageLibrary').classList.add('active-page');
         setNavActive('navLibrary');
         document.querySelector('.app-wrapper').classList.remove('sidebar-open');
+    });
+
+    $('globalQueueAllBtn').addEventListener('click', () => {
+        state.queue = allTracks.map((t, i) => i);
+        renderQueue();
+        $('queuePanel').classList.add('open');
+        if (state.currentIndex === -1) next();
+    });
+
+    $('showQueueBtn').addEventListener('click', () => {
+        $('queuePanel').classList.toggle('open');
+        renderQueue();
+    });
+
+    $('closeQueueBtn').addEventListener('click', () => {
+        $('queuePanel').classList.remove('open');
+    });
+
+    $('clearQueueBtn').addEventListener('click', () => {
+        state.queue = [];
+        renderQueue();
     });
 
     // Search
@@ -767,4 +864,43 @@ function fmt(secs) {
     const m = Math.floor(secs / 60);
     const s = Math.floor(secs % 60);
     return `${m}:${s < 10 ? '0' : ''}${s}`;
+}
+
+function renderQueue() {
+    const qList = document.getElementById('queueList');
+    if (!qList) return;
+    
+    if (state.queue.length === 0) {
+        qList.innerHTML = '<div style="padding:20px;color:var(--text-muted);font-size:14px;text-align:center;">Queue is empty</div>';
+        return;
+    }
+
+    qList.innerHTML = '';
+    state.queue.forEach((idx, i) => {
+        const track = allTracks[idx];
+        if (!track) return;
+        
+        const item = document.createElement('div');
+        item.style.display = 'flex';
+        item.style.alignItems = 'center';
+        item.style.padding = '10px';
+        item.style.borderBottom = '1px solid var(--border)';
+        item.innerHTML = `
+            <div style="flex:1; min-width:0;">
+                <div style="font-size:13px; font-weight:600; color:var(--text-primary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${track.title}</div>
+                <div style="font-size:11px; color:var(--text-muted);">${track.artist}</div>
+            </div>
+            <button class="queue-item-remove" style="background:none;border:none;color:var(--text-muted);cursor:pointer;padding:4px;" title="Remove">
+                <i class="fas fa-times"></i>
+            </button>
+        `;
+        
+        item.querySelector('.queue-item-remove').addEventListener('click', (e) => {
+            e.stopPropagation();
+            state.queue.splice(i, 1);
+            renderQueue();
+        });
+        
+        qList.appendChild(item);
+    });
 }

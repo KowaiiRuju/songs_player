@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Hub</title>
-    <meta name="description" content="A personal music player with YT Music-inspired layout featuring curated albums.">
-    <link rel="icon" type="image/png" href="logo_mplayer.png">
+    <title>Ongaku!</title>
+    <meta name="description" content="A personal music player with a Japanese-themed UI.">
+    <link rel="icon" type="image/png" href="logo_ongaku.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,15 +15,14 @@
 <body>
     <div class="app-wrapper">
 
-        <!-- ===== SIDEBAR ===== -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
         <aside class="sidebar" id="sidebar">
-            <!-- Logo -->
             <div class="sidebar-logo">
-                <div class="logo-icon">�</div>
-                <span class="logo-text">Music Hub</span>
+                <img src="logo_ongaku.png" alt="Ongaku!" class="logo-icon">
+                <span class="logo-text">Ongaku!</span>
             </div>
 
-            <!-- Search -->
             <div class="sidebar-search">
                 <div class="search-box">
                     <i class="fas fa-search search-icon"></i>
@@ -32,7 +31,6 @@
                 </div>
             </div>
 
-            <!-- Nav Links -->
             <nav class="sidebar-nav">
                 <button class="nav-item active" id="navHome" data-nav="home">
                     <i class="fas fa-home nav-item-icon"></i>
@@ -44,27 +42,22 @@
                 </button>
             </nav>
 
-            <!-- Divider -->
             <div class="sidebar-divider"></div>
             <p class="sidebar-section-label">Albums</p>
 
-            <!-- Album List -->
             <ul class="album-nav-list" id="albumNavList">
-                <!-- Populated by JS -->
-            </ul>
+                </ul>
         </aside>
 
-        <!-- ===== MAIN CONTENT ===== -->
         <main class="main-content" id="mainContent">
 
-            <!-- Top Bar -->
             <header class="topbar">
                 <button class="topbar-menu-btn" id="sidebarToggle" title="Toggle Sidebar">
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="topbar-search-mobile">
-                    <i class="fas fa-search"></i>
                     <input type="text" id="searchInputMobile" class="search-input-mobile" placeholder="Search...">
+                    <button class="search-clear" id="searchClearMobile" style="display:none"><i class="fas fa-times"></i></button>
                 </div>
                 <div class="topbar-right">
                     <div class="now-playing-chip" id="nowPlayingChip">
@@ -77,27 +70,25 @@
                 </div>
             </header>
 
-            <!-- Scrollable Content -->
             <div class="content-scroll" id="contentScroll">
 
-                <!-- Home Page -->
                 <section class="page active-page" id="pageHome">
                     <div class="page-hero">
-                        <h1 class="hero-title">Good vibes only ✨</h1>
-                        <p class="hero-sub">Relapse napud puhon</p>
+                        <h1 class="hero-title">Ongaku!</h1>
+                        <p class="hero-sub" id="heroSub">Ongaku ni tsutsumarete (Immersed in music)</p>
+                        <button class="section-play-all flat-play-all" id="globalQueueAllBtn" style="margin-top: 15px;">
+                            <i class="fas fa-list"></i> Queue All Songs
+                        </button>
                     </div>
 
-                    <!-- Search Results -->
                     <div class="search-results-container" id="searchResultsContainer" style="display:none">
                         <h2 class="section-title">Search Results</h2>
                         <div class="song-table" id="searchResults"></div>
                     </div>
 
-                    <!-- All Albums -->
                     <div id="allAlbumSections"></div>
                 </section>
 
-                <!-- Library Page -->
                 <section class="page" id="pageLibrary">
                     <h1 class="page-title">Library</h1>
                     <div class="albums-grid" id="libraryGrid"></div>
@@ -106,9 +97,7 @@
             </div>
         </main>
 
-        <!-- ===== PLAYER BAR ===== -->
         <footer class="player-bar" id="playerBar">
-            <!-- Left: Now Playing -->
             <div class="player-left">
                 <div class="player-thumb" id="playerThumb">
                     <i class="fas fa-music"></i>
@@ -122,7 +111,6 @@
                 </button>
             </div>
 
-            <!-- Center: Controls + Progress -->
             <div class="player-center">
                 <div class="player-controls">
                     <button class="ctrl-btn" id="shuffleBtn" title="Shuffle">
@@ -151,8 +139,10 @@
                 </div>
             </div>
 
-            <!-- Right: Volume -->
             <div class="player-right">
+                <button class="ctrl-btn" id="showQueueBtn" title="Queue">
+                    <i class="fas fa-list-ul"></i>
+                </button>
                 <button class="ctrl-btn volume-icon-btn" id="volBtn" title="Volume">
                     <i class="fas fa-volume-high"></i>
                 </button>
@@ -162,6 +152,19 @@
                 </div>
             </div>
         </footer>
+
+        <div class="queue-panel" id="queuePanel">
+            <div class="queue-header">
+                <h2>Up Next</h2>
+                <div class="queue-header-actions">
+                    <button class="queue-clear-btn" id="clearQueueBtn">Clear</button>
+                    <button class="queue-close-btn" id="closeQueueBtn"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="queue-list" id="queueList">
+                <div style="padding:20px;color:var(--text-muted);font-size:14px;text-align:center;">Queue is empty</div>
+            </div>
+        </div>
 
     </div>
 
