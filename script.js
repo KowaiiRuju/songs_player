@@ -13,7 +13,11 @@ const albums = [
             { title: 'BIRDS OF A FEATHER', artist: 'Billie Eilish', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971412/Billie_Eilish_-_BIRDS_OF_A_FEATHER_Official_Music_Video_qguct0.mp3' },
             { title: 'What Was I Made For', artist: 'Billie Eilish', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971427/Billie_Eilish_-_What_Was_I_Made_For_Official_Music_Video_lpg0kg.mp3' },
             { title: 'The Fate of Ophelia', artist: 'Taylor Swift', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875814/Taylor%20Swift%20-%20The%20Fate%20of%20Ophelia%20%28Official%20Music%20Video%29.mp3' },
-            { title: "Red (Taylor's Version)", artist: 'Taylor Swift', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875825/Taylor%20Swift%20-%20Red%20%28Taylor%27s%20Version%29%20%28Lyric%20Video%29.mp3' }
+            { title: "Red (Taylor's Version)", artist: 'Taylor Swift', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875825/Taylor%20Swift%20-%20Red%20%28Taylor%27s%20Version%29%20%28Lyric%20Video%29.mp3' },
+            { title: 'Reflection', artist: 'Lea Salonga', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971373/Lea_Salonga_-_Reflection_Lyrics_zbjp10.mp3' },
+            { title: "How Far I'll Go", artist: "Auli'i Cravalho", url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971274/Moana_How_Far_I_ll_Go_Lyrics_Auli_i_Cravalho_in1tny.mp3' },
+            { title: 'A Whole New World', artist: 'ZAYN & Zhavia Ward', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971286/ZAYN_Zhavia_Ward_-_A_Whole_New_World_End_Title_From__Aladdin__rg_zwK_sSEY_lbg8kl.mp3' },
+            { title: 'Everything', artist: 'Michael Bublé', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971361/Michael_Bubl%C3%A9_-_Everything_Official_Music_Video_dsie9f.mp3' }
         ]
     },
     {
@@ -25,7 +29,6 @@ const albums = [
         tracks: [
             { title: 'Backburner', artist: 'NIKI', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971414/NIKI_-_Backburner_Lyrics_cgei86.mp3' },
             { title: 'Oceans & Engines', artist: 'NIKI', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971333/NIKI_-_Oceans_Engines_Official_Lyric_Video_t92dqd.mp3' },
-            { title: 'Everything', artist: 'Michael Bublé', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971361/Michael_Bubl%C3%A9_-_Everything_Official_Music_Video_dsie9f.mp3' },
             { title: 'Multo (Extended)', artist: 'Cup of Joe', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775874729/Multo%20%28Extended%29%20%28The%20Cozy%20Cove%20Fest%29%20-%20Cup%20of%20Joe.mp3' },
             { title: 'Deslocado', artist: 'NAPA', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875845/NAPA%20-%20Deslocado%20%28Official%20Video%29.mp3' },
             { title: 'Back To December', artist: 'Taylor Swift', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875848/Taylor%20Swift%20-%20Back%20To%20December.mp3' },
@@ -44,9 +47,7 @@ const albums = [
             { title: 'うっせぇわ (THE FIRST TAKE)', artist: 'Ado', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775876162/Ado%C2%A0-%C2%A0%E3%81%86%E3%81%A3%E3%81%9B%E3%81%87%E3%82%8F%C2%A0%E2%A7%B8%C2%A0THE%C2%A0FIRST%C2%A0TAKE.mp3' },
             { title: 'Aishite Aishite Aishite', artist: 'Ado', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775876115/Aishite%20Aishite%20Aishite.mp3' },
             { title: 'Kawaikute Gomen', artist: 'HoneyWorks', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775876129/Kawaikute%20Gomen.mp3' },
-            { title: 'Reflection', artist: 'Lea Salonga', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971373/Lea_Salonga_-_Reflection_Lyrics_zbjp10.mp3' },
-            { title: "How Far I'll Go", artist: "Auli'i Cravalho", url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971274/Moana_How_Far_I_ll_Go_Lyrics_Auli_i_Cravalho_in1tny.mp3' },
-            { title: 'A Whole New World', artist: 'ZAYN & Zhavia Ward', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971286/ZAYN_Zhavia_Ward_-_A_Whole_New_World_End_Title_From__Aladdin__rg_zwK_sSEY_lbg8kl.mp3' }
+            
         ]
     },
     {
