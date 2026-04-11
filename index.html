@@ -3,169 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ongaku!</title>
-    <meta name="description" content="A personal music player with a Japanese-themed UI.">
+    <title>Cassette Player</title>
+    <meta name="description" content="A nostalgic cassette music player.">
     <link rel="icon" type="image/png" href="logo_ongaku.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="app-wrapper">
+    
 
-        <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-logo">
-                <img src="logo_ongaku.png" alt="Ongaku!" class="logo-icon">
-                <span class="logo-text">Ongaku!</span>
-            </div>
-
-            <div class="sidebar-search">
-                <div class="search-box">
-                    <i class="fas fa-search search-icon"></i>
-                    <input type="text" id="searchInput" class="search-input" placeholder="Search songs, albums...">
-                    <button class="search-clear" id="searchClear" style="display:none"><i class="fas fa-times"></i></button>
-                </div>
-            </div>
-
-            <nav class="sidebar-nav">
-                <button class="nav-item active" id="navHome" data-nav="home">
-                    <i class="fas fa-home nav-item-icon"></i>
-                    <span>Home</span>
-                </button>
-                <button class="nav-item" id="navLibrary" data-nav="library">
-                    <i class="fas fa-music nav-item-icon"></i>
-                    <span>Library</span>
-                </button>
-            </nav>
-
-            <div class="sidebar-divider"></div>
-            <p class="sidebar-section-label">Albums</p>
-
-            <ul class="album-nav-list" id="albumNavList">
-                </ul>
-        </aside>
-
-        <main class="main-content" id="mainContent">
-
-            <header class="topbar">
-                <button class="topbar-menu-btn" id="sidebarToggle" title="Toggle Sidebar">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="topbar-search-mobile">
-                    <input type="text" id="searchInputMobile" class="search-input-mobile" placeholder="Search...">
-                    <button class="search-clear" id="searchClearMobile" style="display:none"><i class="fas fa-times"></i></button>
-                </div>
-                <div class="topbar-right">
-                    <div class="now-playing-chip" id="nowPlayingChip">
-                        <div class="chip-icon"><i class="fas fa-music"></i></div>
-                        <div class="chip-info">
-                            <span id="chipTitle">No track</span>
-                            <span id="chipArtist">—</span>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-            <div class="content-scroll" id="contentScroll">
-
-                <section class="page active-page" id="pageHome">
-                    <div class="page-hero">
-                        <h1 class="hero-title">Ongaku!</h1>
-                        <p class="hero-sub" id="heroSub">Ongaku ni tsutsumarete (Immersed in music)</p>
-                        <button class="section-play-all flat-play-all" id="globalQueueAllBtn" style="margin-top: 15px;">
-                            <i class="fas fa-list"></i> Queue All Songs
-                        </button>
-                    </div>
-
-                    <div class="search-results-container" id="searchResultsContainer" style="display:none">
-                        <h2 class="section-title">Search Results</h2>
-                        <div class="song-table" id="searchResults"></div>
-                    </div>
-
-                    <div id="allAlbumSections"></div>
-                </section>
-
-                <section class="page" id="pageLibrary">
-                    <h1 class="page-title">Library</h1>
-                    <div class="albums-grid" id="libraryGrid"></div>
-                </section>
-
-            </div>
-        </main>
-
-        <footer class="player-bar" id="playerBar">
-            <div class="player-left">
-                <div class="player-thumb" id="playerThumb">
-                    <i class="fas fa-music"></i>
-                </div>
-                <div class="player-track-info">
-                    <span class="player-title" id="playerTitle">Select a song</span>
-                    <span class="player-artist" id="playerArtist">—</span>
-                </div>
-                <button class="player-fav-btn" id="playerFavBtn" title="Like">
-                    <i class="far fa-heart"></i>
-                </button>
-            </div>
-
-            <div class="player-center">
-                <div class="player-controls">
-                    <button class="ctrl-btn" id="shuffleBtn" title="Shuffle">
-                        <i class="fas fa-shuffle"></i>
-                    </button>
-                    <button class="ctrl-btn" id="prevBtn" title="Previous">
-                        <i class="fas fa-step-backward"></i>
-                    </button>
-                    <button class="ctrl-btn play-btn" id="playBtn" title="Play/Pause">
-                        <i class="fas fa-play" id="playIcon"></i>
-                    </button>
-                    <button class="ctrl-btn" id="nextBtn" title="Next">
-                        <i class="fas fa-step-forward"></i>
-                    </button>
-                    <button class="ctrl-btn" id="repeatBtn" title="Repeat">
-                        <i class="fas fa-repeat"></i>
-                    </button>
-                </div>
-                <div class="player-progress-row">
-                    <span class="time-label" id="currentTime">0:00</span>
-                    <div class="progress-track">
-                        <div class="progress-fill" id="progressFill"></div>
-                        <input type="range" class="progress-input" id="progressInput" min="0" max="100" value="0" step="0.1">
-                    </div>
-                    <span class="time-label" id="duration">0:00</span>
-                </div>
-            </div>
-
-            <div class="player-right">
-                <button class="ctrl-btn" id="showQueueBtn" title="Queue">
-                    <i class="fas fa-list-ul"></i>
-                </button>
-                <button class="ctrl-btn volume-icon-btn" id="volBtn" title="Volume">
-                    <i class="fas fa-volume-high"></i>
-                </button>
-                <div class="volume-track">
-                    <div class="volume-fill" id="volumeFill" style="width:70%"></div>
-                    <input type="range" class="volume-input" id="volumeInput" min="0" max="100" value="70">
-                </div>
-            </div>
-        </footer>
-
-        <div class="queue-panel" id="queuePanel">
-            <div class="queue-header">
-                <h2>Up Next</h2>
-                <div class="queue-header-actions">
-                    <button class="queue-clear-btn" id="clearQueueBtn">Clear</button>
-                    <button class="queue-close-btn" id="closeQueueBtn"><i class="fas fa-times"></i></button>
-                </div>
-            </div>
-            <div class="queue-list" id="queueList">
-                <div style="padding:20px;color:var(--text-muted);font-size:14px;text-align:center;">Queue is empty</div>
-            </div>
+    <div class="app-layout">
+        <!-- Pocket Button -->
+        <div id="drawerToggle" class="pocket-button">
+            <i class="fa-solid fa-chevron-right"></i> 
         </div>
 
+        <!-- Sidebar for collection -->
+        <aside class="collection-sidebar" id="sidebar">
+            <div class="collection-title">Cassette Collection</div>
+            <div class="albums-grid" id="albumsContainer">
+                <!-- Cassettes will be rendered here -->
+            </div>
+        </aside>
+
+        <main class="page-container">
+            <!-- Currently Loaded Cassette Info -->
+            <h1 id="albumTitle" class="album-title">Select an Album</h1>
+            <h2 id="nowPlayingText" class="now-playing-text">No track playing</h2>
+
+            <div class="casette-body" id="cassetteBody">
+                <div class="cassette-sticker-wrapper" id="stickerWrapper">
+                    <div class="pick-me-tooltip" id="pickMeTooltip">Pick me!</div>
+                    <img id="dynamicSticker" src="" alt="Album Sticker" class="cassette-sticker" draggable="false">
+                </div>
+                
+                <div class="dots"></div>
+                        <div class="dots"></div>
+                        <div class="dots"></div>
+                        <div class="dots"></div>
+                        <div class="label" id="cassetteLabel">
+                            <div class="label-descp">
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div id="cassetteName" class="cassette-name-text"></div>
+                            </div>
+                            <div class="player">
+                                <div class="tape">
+                                    <div class="circle" id="circle1">
+                                        <div class="teeth"></div><div class="teeth"></div><div class="teeth"></div><div class="teeth"></div>
+                                    </div>
+                                    <div class="visor">
+                                        <div class="inner-circle" id="inner-circle"></div>
+                                        <div class="inner-circle" id="inner-circle2"></div>
+                                    </div>
+                                    <div class="circle" id="circle2">
+                                        <div class="teeth"></div><div class="teeth"></div><div class="teeth"></div><div class="teeth"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="label-color" id="cassetteColor"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hardware Controls -->
+                    <div class="hardware-controls">
+                        
+                        <!-- Volume Knob -->
+                        <div class="volume-wrapper">
+                            <div class="knob-outer" id="volumeKnobContainer">
+                                <div class="volume-knob" id="volumeKnob">
+                                    <div class="knob-indicator"></div>
+                                </div>
+                            </div>
+                            <div class="knob-label">VOLUME</div>
+                        </div>
+
+                        <!-- Deck Buttons -->
+                        <div class="deck-buttons-container">
+                            <button id="play" class="deck-btn"><i class="fa-solid fa-play"></i> PLAY</button>
+                            <button id="pause" class="deck-btn" style="display:none;"><i class="fa-solid fa-pause"></i> PAUS</button>
+                            <button id="prevBtn" class="deck-btn"><i class="fa-solid fa-backward-fast"></i> REW</button>
+                            <button id="nextBtn" class="deck-btn"><i class="fa-solid fa-forward-fast"></i> FF</button>
+                            <button id="stopBtn" class="deck-btn"><i class="fa-solid fa-square"></i> STOP</button>
+                            <button id="switchBtn" class="deck-btn">SWITCH</button>
+                        </div>
+                    </div>
+
+            <!-- Floating Queue Widget -->
+            <div class="queue-floating" id="queueFloating">
+                <div class="queue-header">
+                    <span><i class="fa-solid fa-list-ol"></i> Track Queue</span>
+                    <button id="queueCloseBtn" title="Collapse"><i class="fa-solid fa-chevron-down"></i></button>
+                </div>
+                <div class="queue-list-items" id="queueList"></div>
+            </div>
+            
+            <button id="queueToggleBtn" class="queue-toggle-btn">
+                <i class="fa-solid fa-list-ol"></i> Queue
+            </button>
+            
+        </main>
     </div>
 
     <audio id="audioPlayer"></audio>

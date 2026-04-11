@@ -5,902 +5,469 @@ const albums = [
     {
         id: 'energizer',
         name: 'Energizer',
-        emoji: '⚡',
+        svg: '<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M11.667 2L13 10h6l-9 12-1.333-8H2l9-12z"/></svg>',
         color: 'linear-gradient(135deg, #f59e0b, #d97706)',
+        gifUrl: 'https://media.tenor.com/g_-T28U0XggAAAAi/stitch.gif',
         tracks: [
-            {
-                title: 'WILDFLOWER',
-                artist: 'Billie Eilish',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971439/Billie_Eilish_-_WILDFLOWER_Official_Lyric_Video_fnoc8b.mp3'
-            },
-            {
-                title: 'BIRDS OF A FEATHER',
-                artist: 'Billie Eilish',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971412/Billie_Eilish_-_BIRDS_OF_A_FEATHER_Official_Music_Video_qguct0.mp3'
-            },
-            {
-                title: 'What Was I Made For',
-                artist: 'Billie Eilish',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971427/Billie_Eilish_-_What_Was_I_Made_For_Official_Music_Video_lpg0kg.mp3'
-            },
-            {
-                title: 'The Fate of Ophelia',
-                artist: 'Taylor Swift',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875814/Taylor%20Swift%20-%20The%20Fate%20of%20Ophelia%20%28Official%20Music%20Video%29.mp3'
-            },
-            {
-                title: "Red (Taylor's Version)",
-                artist: 'Taylor Swift',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875825/Taylor%20Swift%20-%20Red%20%28Taylor%27s%20Version%29%20%28Lyric%20Video%29.mp3'
-            }
+            { title: 'WILDFLOWER', artist: 'Billie Eilish', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971439/Billie_Eilish_-_WILDFLOWER_Official_Lyric_Video_fnoc8b.mp3' },
+            { title: 'BIRDS OF A FEATHER', artist: 'Billie Eilish', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971412/Billie_Eilish_-_BIRDS_OF_A_FEATHER_Official_Music_Video_qguct0.mp3' },
+            { title: 'What Was I Made For', artist: 'Billie Eilish', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971427/Billie_Eilish_-_What_Was_I_Made_For_Official_Music_Video_lpg0kg.mp3' },
+            { title: 'The Fate of Ophelia', artist: 'Taylor Swift', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875814/Taylor%20Swift%20-%20The%20Fate%20of%20Ophelia%20%28Official%20Music%20Video%29.mp3' },
+            { title: "Red (Taylor's Version)", artist: 'Taylor Swift', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875825/Taylor%20Swift%20-%20Red%20%28Taylor%27s%20Version%29%20%28Lyric%20Video%29.mp3' }
         ]
     },
     {
         id: 'relapse-malala',
         name: 'Relapse Malala',
-        emoji: '💙',
+        svg: '<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>',
         color: 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
+        gifUrl: 'https://media.tenor.com/GazZv1uMhVsAAAAi/hug.gif',
         tracks: [
-            {
-                title: 'Backburner',
-                artist: 'NIKI',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971414/NIKI_-_Backburner_Lyrics_cgei86.mp3'
-            },
-            {
-                title: 'Oceans & Engines',
-                artist: 'NIKI',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971333/NIKI_-_Oceans_Engines_Official_Lyric_Video_t92dqd.mp3'
-            },
-            {
-                title: 'Everything',
-                artist: 'Michael Bublé',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971361/Michael_Bubl%C3%A9_-_Everything_Official_Music_Video_dsie9f.mp3'
-            },
-            {
-                title: 'Multo (Extended)',
-                artist: 'Cup of Joe',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775874729/Multo%20%28Extended%29%20%28The%20Cozy%20Cove%20Fest%29%20-%20Cup%20of%20Joe.mp3'
-            },
-            {
-                title: 'Deslocado',
-                artist: 'NAPA',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875845/NAPA%20-%20Deslocado%20%28Official%20Video%29.mp3'
-            },
-            {
-                title: 'Back To December',
-                artist: 'Taylor Swift',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875848/Taylor%20Swift%20-%20Back%20To%20December.mp3'
-            },
-            {
-                title: 'Tindahan ng mga Alaala',
-                artist: 'Filipino',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875870/tindahan%20ng%20mga%20alaala.mp3'
-            }
+            { title: 'Backburner', artist: 'NIKI', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971414/NIKI_-_Backburner_Lyrics_cgei86.mp3' },
+            { title: 'Oceans & Engines', artist: 'NIKI', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971333/NIKI_-_Oceans_Engines_Official_Lyric_Video_t92dqd.mp3' },
+            { title: 'Everything', artist: 'Michael Bublé', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971361/Michael_Bubl%C3%A9_-_Everything_Official_Music_Video_dsie9f.mp3' },
+            { title: 'Multo (Extended)', artist: 'Cup of Joe', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775874729/Multo%20%28Extended%29%20%28The%20Cozy%20Cove%20Fest%29%20-%20Cup%20of%20Joe.mp3' },
+            { title: 'Deslocado', artist: 'NAPA', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875845/NAPA%20-%20Deslocado%20%28Official%20Video%29.mp3' },
+            { title: 'Back To December', artist: 'Taylor Swift', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875848/Taylor%20Swift%20-%20Back%20To%20December.mp3' },
+            { title: 'Tindahan ng mga Alaala', artist: 'Filipino', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875870/tindahan%20ng%20mga%20alaala.mp3' }
         ]
     },
     {
         id: 'ado-rable',
         name: 'ADO-rable',
-        emoji: '🎤',
+        svg: '<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.91-3c-.49 0-.9.36-.98.85C16.52 14.2 14.47 16 12 16s-4.52-1.8-4.93-4.15c-.08-.49-.49-.85-.98-.85-.61 0-1.09.54-1 1.14.49 3 2.89 5.35 5.91 5.78V20c0 .55.45 1 1 1s1-.45 1-1v-2.08c3.02-.43 5.42-2.78 5.91-5.78.1-.6-.39-1.14-1-1.14z"/></svg>',
         color: 'linear-gradient(135deg, #ec4899, #be185d)',
+        gifUrl: 'https://media.tenor.com/DKNqCkZ0wncAAAAi/blue-birthday.gif',
         tracks: [
-            {
-                title: 'Vivarium',
-                artist: 'Ado',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775874385/%E3%80%90Ado%E3%80%91%E3%83%93%E3%83%90%E3%83%AA%E3%82%A6%E3%83%A0%20%28Vivarium%29.mp3'
-            },
-            {
-                title: '唱 (Uta)',
-                artist: 'Ado',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775874599/%E3%80%90Ado%E3%80%91%20%E5%94%B1.mp3'
-            },
-            {
-                title: 'うっせぇわ (THE FIRST TAKE)',
-                artist: 'Ado',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775876162/Ado%C2%A0-%C2%A0%E3%81%86%E3%81%A3%E3%81%9B%E3%81%87%E3%82%8F%C2%A0%E2%A7%B8%C2%A0THE%C2%A0FIRST%C2%A0TAKE.mp3'
-            },
-            {
-                title: 'Aishite Aishite Aishite',
-                artist: 'Ado',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775876115/Aishite%20Aishite%20Aishite.mp3'
-            },
-            {
-                title: 'Kawaikute Gomen',
-                artist: 'HoneyWorks',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775876129/Kawaikute%20Gomen.mp3'
-            },
-            {
-                title: 'Reflection',
-                artist: 'Lea Salonga',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971373/Lea_Salonga_-_Reflection_Lyrics_zbjp10.mp3'
-            },
-            {
-                title: "How Far I'll Go",
-                artist: "Auli'i Cravalho",
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971274/Moana_How_Far_I_ll_Go_Lyrics_Auli_i_Cravalho_in1tny.mp3'
-            },
-            {
-                title: 'A Whole New World',
-                artist: 'ZAYN & Zhavia Ward',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971286/ZAYN_Zhavia_Ward_-_A_Whole_New_World_End_Title_From__Aladdin__rg_zwK_sSEY_lbg8kl.mp3'
-            }
+            { title: 'Vivarium', artist: 'Ado', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775874385/%E3%80%90Ado%E3%80%91%E3%83%93%E3%83%90%E3%83%AA%E3%82%A6%E3%83%A0%20%28Vivarium%29.mp3' },
+            { title: '唱 (Uta)', artist: 'Ado', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775874599/%E3%80%90Ado%E3%80%91%20%E5%94%B1.mp3' },
+            { title: 'うっせぇわ (THE FIRST TAKE)', artist: 'Ado', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775876162/Ado%C2%A0-%C2%A0%E3%81%86%E3%81%A3%E3%81%9B%E3%81%87%E3%82%8F%C2%A0%E2%A7%B8%C2%A0THE%C2%A0FIRST%C2%A0TAKE.mp3' },
+            { title: 'Aishite Aishite Aishite', artist: 'Ado', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775876115/Aishite%20Aishite%20Aishite.mp3' },
+            { title: 'Kawaikute Gomen', artist: 'HoneyWorks', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775876129/Kawaikute%20Gomen.mp3' },
+            { title: 'Reflection', artist: 'Lea Salonga', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971373/Lea_Salonga_-_Reflection_Lyrics_zbjp10.mp3' },
+            { title: "How Far I'll Go", artist: "Auli'i Cravalho", url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971274/Moana_How_Far_I_ll_Go_Lyrics_Auli_i_Cravalho_in1tny.mp3' },
+            { title: 'A Whole New World', artist: 'ZAYN & Zhavia Ward', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971286/ZAYN_Zhavia_Ward_-_A_Whole_New_World_End_Title_From__Aladdin__rg_zwK_sSEY_lbg8kl.mp3' }
         ]
     },
     {
         id: 'jpop',
         name: 'Jpop',
-        emoji: '🌸',
+        svg: '<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><circle cx="12" cy="12" r="3"/><path d="M15 3.5c-.88 0-1.66.45-2 1.12C12.66 3.95 11.88 3.5 11 3.5c-2 0-3.5 1.5-3.5 3.5 0 .28.05.54.12.8C6.67 7.7 5.5 8.71 5.5 10c0 1.05.61 1.96 1.5 2.45C6.11 12.94 5.5 13.85 5.5 14.9c0 1.3 1.17 2.3 2.12 2.2.07.26.12.52.12.8 0 2 1.5 3.5 3.5 3.5s2-.45 2.36-1.12c.34.67 1.12 1.12 2 1.12 2 0 3.5-1.5 3.5-3.5 0-.28-.05-.54-.12-.8.95.1 2.12-.9 2.12-2.2 0-1.05-.61-1.96-1.5-2.45.89-.49 1.5-1.4 1.5-2.45 0-1.3-1.17-2.3-2.12-2.2-.07-.26-.12-.52-.12-.8 0-2-1.5-3.5-3.5-3.5z"/></svg>',
         color: 'linear-gradient(135deg, #8b5cf6, #6d28d9)',
+        gifUrl: 'https://media.tenor.com/acAB1T70IH4AAAAi/lilo-and-stitch-animation.gif',
         tracks: [
-            {
-                title: 'Hikaru Nara',
-                artist: 'Goose House',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875808/Hikaru%20Nara%20-%20Goose%20House%20%5BRomaji%2C%20Espa%C3%B1ol%2C%20English%2C%20Color%20Coded%5D.mp3'
-            },
-            {
-                title: 'Odoriko (踊り子)',
-                artist: 'Vaundy',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875861/Vaundy%20-%20Odoriko%20%28%E8%B8%8A%E3%82%8A%E5%AD%90%29%20%28Lyrics%29%20%28Rom%E2%A7%B8Eng%29.mp3'
-            }
+            { title: 'Hikaru Nara', artist: 'Goose House', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875808/Hikaru%20Nara%20-%20Goose%20House%20%5BRomaji%2C%20Espa%C3%B1ol%2C%20English%2C%20Color%20Coded%5D.mp3' },
+            { title: 'Odoriko (踊り子)', artist: 'Vaundy', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875861/Vaundy%20-%20Odoriko%20%28%E8%B8%8A%E3%82%8A%E5%AD%90%29%20%28Lyrics%29%20%28Rom%E2%A7%B8Eng%29.mp3' }
         ]
     },
     {
         id: 'tj',
         name: 'TJ',
-        emoji: '🎵',
+        svg: '<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>',
         color: 'linear-gradient(135deg, #10b981, #065f46)',
+        gifUrl: 'https://media.tenor.com/ARHlQWxJAYgAAAAi/love-stitch.gif',
         tracks: [
-            {
-                title: 'Ikaw At Ako Pa Rin',
-                artist: 'TJ Monterde ft KZ Tandingan',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971319/TJ_Monterde_Ft._KZ_Tandingan_-_Ikaw_At_Ako_Pa_Rin_-_Official_Lyric_Video_zz2ucs.mp3'
-            },
-            {
-                title: 'Kung Siya Man',
-                artist: 'TJ Monterde',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971435/TJ_Monterde_-_Kung_Siya_Man_Official_Lyric_Video_akqjqg.mp3'
-            },
-            {
-                title: 'Tulad Mo',
-                artist: 'TJ Monterde',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971393/TJ_Monterde_-_Tulad_Mo_Official_Music_Video_m43xy4.mp3'
-            },
-            {
-                title: 'Puhon',
-                artist: 'TJ Monterde',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971420/TJ_Monterde_-_Puhon_-_Official_Lyric_Video_lfzi91.mp3'
-            },
-            {
-                title: 'Dating Tayo',
-                artist: 'TJ Monterde',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971434/TJ_Monterde_-_Dating_Tayo_Lyric_Video_enradi.mp3'
-            },
-            {
-                title: 'DARATING DIN',
-                artist: 'TJ Monterde',
-                url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875814/DARATING_DIN_-_TJ_Monterde_OFFICIAL_LYRIC_VIDEO_ovocgq.mp3'
-            }
+            { title: 'Ikaw At Ako Pa Rin', artist: 'TJ Monterde ft KZ Tandingan', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971319/TJ_Monterde_Ft._KZ_Tandingan_-_Ikaw_At_Ako_Pa_Rin_-_Official_Lyric_Video_zz2ucs.mp3' },
+            { title: 'Kung Siya Man', artist: 'TJ Monterde', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971435/TJ_Monterde_-_Kung_Siya_Man_Official_Lyric_Video_akqjqg.mp3' },
+            { title: 'Tulad Mo', artist: 'TJ Monterde', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971393/TJ_Monterde_-_Tulad_Mo_Official_Music_Video_m43xy4.mp3' },
+            { title: 'Puhon', artist: 'TJ Monterde', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971420/TJ_Monterde_-_Puhon_-_Official_Lyric_Video_lfzi91.mp3' },
+            { title: 'Dating Tayo', artist: 'TJ Monterde', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1773971434/TJ_Monterde_-_Dating_Tayo_Lyric_Video_enradi.mp3' },
+            { title: 'DARATING DIN', artist: 'TJ Monterde', url: 'https://res.cloudinary.com/dxmgdfim6/video/upload/v1775875814/DARATING_DIN_-_TJ_Monterde_OFFICIAL_LYRIC_VIDEO_ovocgq.mp3' }
         ]
     }
 ];
 
-// Store durations
-const trackDurations = {};
-
-// Flatten into a global array for lookup
-let allTracks = [];
-albums.forEach(album => {
-    album.tracks.forEach((track, i) => {
-        allTracks.push({
-            ...track,
-            albumId: album.id,
-            albumName: album.name,
-            albumEmoji: album.emoji,
-            albumColor: album.color
-        });
-    });
-});
-
-// Sort all tracks alphabetically by title
-allTracks.sort((a, b) => a.title.localeCompare(b.title));
-
-// Fix globalIndex
-allTracks = allTracks.map((t, i) => ({ ...t, globalIndex: i }));
-
-// ============================================================
-//  PLAYER STATE
-// ============================================================
-// ============================================================
-//  LIKES PERSISTENCE (localStorage)
-// ============================================================
-function loadLikes() {
-    try {
-        const stored = localStorage.getItem('music_hub_liked_tracks');
-        return stored ? new Set(JSON.parse(stored)) : new Set();
-    } catch { return new Set(); }
-}
-function saveLikes(likedSet) {
-    try {
-        localStorage.setItem('music_hub_liked_tracks', JSON.stringify([...likedSet]));
-    } catch {}
-}
-
-const state = {
-    currentIndex: -1,
-    isPlaying: false,
-    isShuffled: false,
-    isRepeating: false,
-    volume: 70,
-    liked: loadLikes(),
-    queue: []
-};
-
 // ============================================================
 //  DOM REFS
 // ============================================================
-const $ = id => document.getElementById(id);
-const audio = $('audioPlayer');
+const albumTitle = document.getElementById('albumTitle');
+const nowPlayingText = document.getElementById('nowPlayingText');
+const cassetteName = document.getElementById('cassetteName');
+const cassetteColor = document.getElementById('cassetteColor');
+const albumsContainer = document.getElementById('albumsContainer');
+const drawerToggle = document.getElementById('drawerToggle');
+const sidebar = document.getElementById('sidebar');
 
-const playerTitle   = $('playerTitle');
-const playerArtist  = $('playerArtist');
-const playerThumb   = $('playerThumb');
-const playerFavBtn  = $('playerFavBtn');
-const playBtn       = $('playBtn');
-const playIcon      = $('playIcon');
-const prevBtn       = $('prevBtn');
-const nextBtn       = $('nextBtn');
-const shuffleBtn    = $('shuffleBtn');
-const repeatBtn     = $('repeatBtn');
-const progressInput = $('progressInput');
-const progressFill  = $('progressFill');
-const currentTimeEl = $('currentTime');
-const durationEl    = $('duration');
-const volumeInput   = $('volumeInput');
-const volumeFill    = $('volumeFill');
-const volBtn        = $('volBtn');
-const chipTitle     = $('chipTitle');
-const chipArtist    = $('chipArtist');
+const prevBtn = document.getElementById('prevBtn');
+const playBtn = document.getElementById('play');
+const pauseBtn = document.getElementById('pause');
+const nextBtn = document.getElementById('nextBtn');
+const stopBtn = document.getElementById('stopBtn');
+const switchBtn = document.getElementById('switchBtn');
+const volumeKnobContainer = document.getElementById('volumeKnobContainer');
+const volumeKnob = document.getElementById('volumeKnob');
+const queueList = document.getElementById('queueList');
+const queueFloating = document.getElementById('queueFloating');
+const queueCloseBtn = document.getElementById('queueCloseBtn');
+const queueToggleBtn = document.getElementById('queueToggleBtn');
+const dynamicSticker = document.getElementById('dynamicSticker');
+const stickerWrapper = document.getElementById('stickerWrapper');
+const pickMeTooltip = document.getElementById('pickMeTooltip');
+
+const audio = document.getElementById('audioPlayer');
+
+// Animation refs
+const circle1 = document.getElementById("circle1");
+const circle2 = document.getElementById("circle2");
+const innerCircle1 = document.getElementById("inner-circle");
+const innerCircle2 = document.getElementById("inner-circle2");
+
+// ============================================================
+//  STATE
+// ============================================================
+let currentAlbum = null;
+let currentTrackIndex = -1; // index within currentAlbum.tracks
+let isPlaying = false;
+let savedVolume = 0.7;
 
 // ============================================================
 //  INIT
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
-    renderSidebarAlbums();
-    renderAllAlbumSections();
-    renderLibraryGrid();
+    audio.volume = savedVolume;
+    renderAlbumCollection();
+    
+    // Select first album by default without playing
+    if (albums.length > 0) {
+        loadAlbumCassette(albums[0], false);
+    }
+    
     setupEventListeners();
-    audio.volume = state.volume / 100;
-    preloadDurations();
 });
 
 // ============================================================
-//  PRELOAD DURATIONS
+//  UI RENDER
 // ============================================================
-function preloadDurations() {
-    allTracks.forEach((track, idx) => {
-        if (!track.url) return;
-        const audio = new Audio();
-        audio.addEventListener('loadedmetadata', () => {
-            trackDurations[idx] = audio.duration;
-            document.querySelectorAll(`[id="dur-${idx}"]`).forEach(el => {
-                el.textContent = fmt(audio.duration);
-            });
-        });
-        audio.src = track.url;
-    });
-}
-
-// ============================================================
-//  SIDEBAR ALBUMS
-// ============================================================
-function renderSidebarAlbums() {
-    const list = $('albumNavList');
-    list.innerHTML = '';
-    albums.forEach(album => {
-        const li = document.createElement('li');
-        li.className = 'album-nav-item';
-        li.dataset.albumId = album.id;
-        li.innerHTML = `
-            <div class="album-nav-dot" style="background:${album.color};">${album.emoji}</div>
-            <div class="album-nav-info">
-                <div class="album-nav-name">${album.name}</div>
-                <div class="album-nav-count">${album.tracks.length} songs</div>
-            </div>
-        `;
-        li.addEventListener('click', () => scrollToAlbum(album.id));
-        list.appendChild(li);
-    });
-}
-
-// ============================================================
-//  HOME: FLAT SONG LIST (grouped by album)
-// ============================================================
-function renderAllAlbumSections(filterAlbumId = null) {
-    const container = $('allAlbumSections');
-    container.innerHTML = '';
-
-    const wrapper = document.createElement('div');
-    wrapper.className = 'flat-song-list';
-
-    // Group header (either All Songs or specific Album)
-    let headerName = "All Songs";
-    let headerEmoji = "💽";
-    let headerColor = "linear-gradient(135deg, var(--accent-glow), var(--bg-elevated))";
-    
-    if (filterAlbumId) {
-        const album = albums.find(a => a.id === filterAlbumId);
-        if (album) {
-            headerName = album.name;
-            headerEmoji = album.emoji;
-            headerColor = album.color;
-        }
-    }
-
-    const realTracks = filterAlbumId 
-        ? allTracks.filter(t => t.albumId === filterAlbumId && t.url)
-        : allTracks.filter(t => t.url);
-
-    const groupHeader = document.createElement('div');
-    groupHeader.className = 'flat-group-header';
-    groupHeader.innerHTML = `
-        <div class="flat-group-dot" style="background:${headerColor};">${headerEmoji}</div>
-        <span class="flat-group-name">${headerName}</span>
-        <span class="flat-group-count">${realTracks.length} songs</span>
-        <button class="section-play-all flat-play-all">
-            <i class="fas fa-play"></i> Play All
-        </button>
-    `;
-    groupHeader.querySelector('.flat-play-all').addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (realTracks.length > 0) {
-            loadAndPlay(realTracks[0].globalIndex);
-        }
-    });
-    wrapper.appendChild(groupHeader);
-
-    // Song rows
-    const table = document.createElement('div');
-    table.className = 'song-table';
-    realTracks.forEach((track, i) => {
-        renderSongRow(table, track, i + 1, track.globalIndex);
-    });
-    wrapper.appendChild(table);
-
-    container.appendChild(wrapper);
-}
-
-function renderSongRow(container, track, num, globalIdx) {
-    const row = document.createElement('div');
-    row.className = 'song-row';
-    row.id = `row-${globalIdx}`;
-    row.dataset.idx = globalIdx;
-
-    const isLiked = state.liked.has(track.url);
-    const likeIcon = isLiked ? 'fas fa-heart' : 'far fa-heart';
-    const likeClass = isLiked ? 'song-action-btn like-btn liked' : 'song-action-btn like-btn';
-
-    const durationText = trackDurations[globalIdx] ? fmt(trackDurations[globalIdx]) : '—';
-
-    row.innerHTML = `
-        <div class="song-row-num">
-            <span class="num-text">${num}</span>
-            <span class="play-icon-hover"><i class="fas fa-play"></i></span>
-        </div>
-        <div class="song-row-info">
-            <div class="song-row-title">${track.title}</div>
-            <div class="song-row-artist">${track.artist}</div>
-        </div>
-        <div class="song-row-duration" id="dur-${globalIdx}">${durationText}</div>
-        <div class="song-row-actions">
-            <button class="${likeClass}" data-idx="${globalIdx}" title="Like"><i class="${likeIcon}"></i></button>
-        </div>
-    `;
-
-    row.addEventListener('click', (e) => {
-        if (!e.target.closest('.song-action-btn')) {
-            loadAndPlay(globalIdx);
-        }
-    });
-
-    row.querySelector('.like-btn').addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleLike(track.url, row.querySelector('.like-btn'));
-    });
-
-    container.appendChild(row);
-}
-
-// ============================================================
-//  LIBRARY GRID
-// ============================================================
-function renderLibraryGrid() {
-    const grid = $('libraryGrid');
-    grid.innerHTML = '';
+function renderAlbumCollection() {
+    albumsContainer.innerHTML = '';
     albums.forEach(album => {
         const card = document.createElement('div');
-        card.className = 'album-card';
+        card.className = 'album-tape-card';
+        card.id = `tape-${album.id}`;
+        
         card.innerHTML = `
-            <div class="album-card-art" style="background:${album.color};">${album.emoji}</div>
-            <div class="album-card-name">${album.name}</div>
-            <div class="album-card-count">${album.tracks.length} songs</div>
+            <div class="tape-card-label">
+                <div class="tape-card-text">${album.name}</div>
+                <div class="tape-card-color" style="background: ${album.color};"></div>
+            </div>
+            <div class="tape-card-emoji">${album.svg}</div>
         `;
+        
         card.addEventListener('click', () => {
-            showPage('home');
-            setNavActive('navHome');
-            setTimeout(() => scrollToAlbum(album.id), 100);
+            if (currentAlbum && currentAlbum.id === album.id) return;
+            loadAlbumCassette(album, true);
         });
-        grid.appendChild(card);
+        
+        albumsContainer.appendChild(card);
     });
 }
 
-// ============================================================
-//  SEARCH
-// ============================================================
-function setupSearch() {
-    const searchInput = $('searchInput');
-    const searchClear = $('searchClear');
-    const searchResultsContainer = $('searchResultsContainer');
-    const searchResults = $('searchResults');
-    const allAlbumSections = $('allAlbumSections');
-
-    function doSearch(query) {
-        query = query.trim().toLowerCase();
-        if (!query) {
-            searchResultsContainer.style.display = 'none';
-            allAlbumSections.style.display = '';
-            searchClear.style.display = 'none';
-            if ($('searchClearMobile')) $('searchClearMobile').style.display = 'none';
-            return;
+function loadAlbumCassette(album, autoPlay = true) {
+    currentAlbum = album;
+    currentTrackIndex = 0;
+    
+    // Update active state in collection
+    document.querySelectorAll('.album-tape-card').forEach(el => el.classList.remove('active'));
+    const activeCard = document.getElementById(`tape-${album.id}`);
+    if (activeCard) activeCard.classList.add('active');
+    
+    // Update main cassette visual
+    albumTitle.textContent = album.name;
+    cassetteName.innerHTML = `${album.svg} ${album.name}`;
+    cassetteColor.style.background = album.color;
+    
+    // Update Dynamic Sticker
+    if (dynamicSticker) {
+        if (album.gifUrl) {
+            dynamicSticker.src = album.gifUrl;
+            dynamicSticker.style.display = 'block';
+        } else {
+            dynamicSticker.style.display = 'none';
         }
-        searchClear.style.display = '';
-        if ($('searchClearMobile')) $('searchClearMobile').style.display = '';
-        const matches = allTracks.filter(t =>
-            t.title.toLowerCase().includes(query) ||
-            t.artist.toLowerCase().includes(query) ||
-            t.albumName.toLowerCase().includes(query)
-        );
-
-        searchResultsContainer.style.display = '';
-        allAlbumSections.style.display = 'none';
-        searchResults.innerHTML = '';
-
-        if (matches.length === 0) {
-            searchResults.innerHTML = '<div style="padding:20px;color:var(--text-muted);font-size:14px;">No songs found.</div>';
-            return;
-        }
-
-        matches.forEach((track, i) => {
-            renderSongRow(searchResults, track, i + 1, track.globalIndex);
-        });
     }
-
-    const mobileInput = $('searchInputMobile');
-
-    searchInput.addEventListener('input', () => {
-        if (mobileInput) mobileInput.value = searchInput.value;
-        doSearch(searchInput.value);
-    });
     
-    searchClear.addEventListener('click', () => {
-        searchInput.value = '';
-        if (mobileInput) mobileInput.value = '';
-        doSearch('');
-        searchInput.focus();
-    });
-
-    // Mobile search sync
-    if (mobileInput) {
-        mobileInput.addEventListener('input', () => {
-            searchInput.value = mobileInput.value;
-            doSearch(mobileInput.value);
-        });
-    }
-
-    const searchClearMobile = $('searchClearMobile');
-    if (searchClearMobile && mobileInput) {
-        searchClearMobile.addEventListener('click', () => {
-            mobileInput.value = '';
-            searchInput.value = '';
-            doSearch('');
-            mobileInput.focus();
-        });
+    // Render Queue List
+    renderQueueList(album);
+    
+    // Load track
+    if (album.tracks.length > 0) {
+        loadTrack(currentTrackIndex, autoPlay);
     }
 }
 
-// ============================================================
-//  SCROLL TO ALBUM
-// ============================================================
-function scrollToAlbum(albumId) {
-    showPage('home');
-    setNavActive('navHome');
+function loadTrack(index, autoPlay = false) {
+    if (!currentAlbum || index < 0 || index >= currentAlbum.tracks.length) return;
     
-    // Highlight sidebar item
-    document.querySelectorAll('.album-nav-item').forEach(el => el.classList.remove('active'));
-    const sidebarItem = document.querySelector(`[data-album-id="${albumId}"]`);
-    if (sidebarItem) sidebarItem.classList.add('active');
+    currentTrackIndex = index;
+    const track = currentAlbum.tracks[index];
     
-    renderAllAlbumSections(albumId); // render filtered by album
-    document.querySelector('.app-wrapper').classList.remove('sidebar-open');
-}
-
-// ============================================================
-//  LOAD & PLAY
-// ============================================================
-function loadAndPlay(index) {
-    if (index < 0 || index >= allTracks.length) return;
-    const track = allTracks[index];
-    if (!track.url) return alert('No audio URL for this track.');
-
-    // Remove playing highlight from old row
-    document.querySelectorAll('.song-row.playing').forEach(r => r.classList.remove('playing'));
-
-    state.currentIndex = index;
+    nowPlayingText.textContent = `${track.title} - ${track.artist}`;
+    
+    // Update Queue UI
+    if (queueList) {
+        queueList.querySelectorAll('.queue-item').forEach(el => el.classList.remove('active'));
+        const activeItem = document.getElementById(`queue-track-${index}`);
+        if (activeItem) activeItem.classList.add('active');
+    }
+    
     audio.src = track.url;
     audio.load();
-
-    // Update player bar
-    playerTitle.textContent = track.title;
-    playerArtist.textContent = track.artist;
-    chipTitle.textContent = track.title;
-    chipArtist.textContent = track.artist;
-
-    // Thumb color
-    playerThumb.style.background = track.albumColor;
-    playerThumb.innerHTML = `<span style="font-size:20px">${track.albumEmoji}</span>`;
-
-    // Highlight row
-    const row = document.getElementById(`row-${index}`);
-    if (row) {
-        row.classList.add('playing');
-        // Show eq bar in number cell
-        const numEl = row.querySelector('.play-icon-hover');
-        if (numEl) numEl.innerHTML = '<div class="eq-bars"><div class="eq-bar" style="height:8px"></div><div class="eq-bar" style="height:12px"></div><div class="eq-bar" style="height:6px"></div></div>';
-    }
-
-    // Update like button state
-    updateFavBtn();
-
-    audio.play().then(() => {
-        state.isPlaying = true;
-        updatePlayBtn();
-        playerThumb.classList.add('playing');
-    }).catch(err => {
-        console.error('Playback error:', err);
-    });
-}
-
-function updateFavBtn() {
-    const track = allTracks[state.currentIndex];
-    if (!track) return;
-    const liked = state.liked.has(track.url);
-    playerFavBtn.className = 'player-fav-btn' + (liked ? ' liked' : '');
-    playerFavBtn.innerHTML = liked ? '<i class="fas fa-heart"></i>' : '<i class="far fa-heart"></i>';
-}
-
-function toggleLike(trackUrl, btn) {
-    if (state.liked.has(trackUrl)) {
-        state.liked.delete(trackUrl);
-        btn.classList.remove('liked');
-        btn.innerHTML = '<i class="far fa-heart"></i>';
-    } else {
-        state.liked.add(trackUrl);
-        btn.classList.add('liked');
-        btn.innerHTML = '<i class="fas fa-heart"></i>';
-    }
-    saveLikes(state.liked);
     
-    const track = allTracks[state.currentIndex];
-    if (track && track.url === trackUrl) {
-        updateFavBtn();
+    if (autoPlay) {
+        audio.play().catch(console.error);
     }
 }
 
 // ============================================================
-//  PLAYBACK CONTROLS
+//  ANIMATIONS
 // ============================================================
-function togglePlay() {
-    if (state.currentIndex === -1) {
-        loadAndPlay(0);
-        return;
-    }
-    if (state.isPlaying) {
+function toggleAnimation(playState) {
+    circle1.style.animationPlayState = playState;
+    circle2.style.animationPlayState = playState;
+    innerCircle1.style.animationPlayState = playState;
+    innerCircle2.style.animationPlayState = playState;
+}
+
+// ============================================================
+//  CONTROLS
+// ============================================================
+function playNext() {
+    if (!currentAlbum) return;
+    if (currentTrackIndex < currentAlbum.tracks.length - 1) {
+        loadTrack(currentTrackIndex + 1, true);
+    } else {
+        // reached end of tape, stop or reset
+        loadTrack(0, false);
         audio.pause();
-    } else {
-        audio.play();
     }
 }
 
-function prev() {
-    if (state.currentIndex <= 0) {
-        loadAndPlay(allTracks.length - 1);
+function playPrev() {
+    if (!currentAlbum) return;
+    if (currentTrackIndex > 0) {
+        loadTrack(currentTrackIndex - 1, true);
     } else {
-        loadAndPlay(state.currentIndex - 1);
-    }
-}
-
-function next() {
-    if (state.queue.length > 0) {
-        const nextIdx = state.queue.shift();
-        renderQueue();
-        loadAndPlay(nextIdx);
-        return;
-    }
-    if (state.isShuffled) {
-        let r;
-        do { r = Math.floor(Math.random() * allTracks.length); }
-        while (allTracks.length > 1 && r === state.currentIndex);
-        loadAndPlay(r);
-    } else if (state.currentIndex >= allTracks.length - 1) {
-        loadAndPlay(0);
-    } else {
-        loadAndPlay(state.currentIndex + 1);
-    }
-}
-
-function updatePlayBtn() {
-    if (state.isPlaying) {
-        playIcon.className = 'fas fa-pause';
-    } else {
-        playIcon.className = 'fas fa-play';
+        loadTrack(0, true); // replay first track
     }
 }
 
 // ============================================================
-//  PAGE NAVIGATION
+//  HELPERS & QUEUE
 // ============================================================
-function showPage(pageId) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
-    const el = pageId === 'home' ? $('pageHome') : $('pageLibrary');
-    if (el) el.classList.add('active-page');
-}
-
-function setNavActive(navId) {
-    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-    document.getElementById(navId).classList.add('active');
+function renderQueueList(album) {
+    if (!queueList) return;
+    queueList.innerHTML = '';
+    album.tracks.forEach((track, idx) => {
+        const div = document.createElement('div');
+        div.className = 'queue-item';
+        div.id = `queue-track-${idx}`;
+        div.innerHTML = `<span>${idx + 1}. ${track.title}</span> <span>${track.artist}</span>`;
+        div.addEventListener('click', () => {
+            loadTrack(idx, true);
+        });
+        queueList.appendChild(div);
+    });
 }
 
 // ============================================================
 //  EVENT LISTENERS
 // ============================================================
 function setupEventListeners() {
-    // Play / Pause
-    playBtn.addEventListener('click', togglePlay);
-    prevBtn.addEventListener('click', prev);
-    nextBtn.addEventListener('click', next);
-
-    // Shuffle
-    shuffleBtn.addEventListener('click', () => {
-        state.isShuffled = !state.isShuffled;
-        shuffleBtn.classList.toggle('active', state.isShuffled);
-    });
-
-    // Repeat
-    repeatBtn.addEventListener('click', () => {
-        state.isRepeating = !state.isRepeating;
-        repeatBtn.classList.toggle('active', state.isRepeating);
-    });
-
-    // Like in player bar
-    playerFavBtn.addEventListener('click', () => {
-        if (state.currentIndex === -1) return;
-        const track = allTracks[state.currentIndex];
-        
-        toggleLike(track.url, playerFavBtn);
-        
-        // Sync the list view button if it's currently rendered
-        const rowBtn = document.querySelector(`.song-row[data-idx="${state.currentIndex}"] .like-btn`);
-        if (rowBtn) {
-            const isLiked = state.liked.has(track.url);
-            rowBtn.className = 'song-action-btn like-btn' + (isLiked ? ' liked' : '');
-            rowBtn.innerHTML = isLiked ? '<i class="fas fa-heart"></i>' : '<i class="far fa-heart"></i>';
-        }
-    });
-
-    // Progress
-    progressInput.addEventListener('input', () => {
-        if (audio.duration) {
-            audio.currentTime = (progressInput.value / 100) * audio.duration;
-        }
-    });
-
-    audio.addEventListener('timeupdate', () => {
-        if (audio.duration) {
-            const pct = (audio.currentTime / audio.duration) * 100;
-            progressFill.style.width = pct + '%';
-            progressInput.value = pct;
-            currentTimeEl.textContent = fmt(audio.currentTime);
-        }
-    });
-
-    audio.addEventListener('loadedmetadata', () => {
-        durationEl.textContent = fmt(audio.duration);
-        // Update track duration in row
-        document.querySelectorAll(`[id="dur-${state.currentIndex}"]`).forEach(el => {
-            el.textContent = fmt(audio.duration);
-        });
-        trackDurations[state.currentIndex] = audio.duration;
-    });
-
-    audio.addEventListener('play', () => {
-        state.isPlaying = true;
-        updatePlayBtn();
-        playerThumb.classList.add('playing');
-    });
-
-    audio.addEventListener('pause', () => {
-        state.isPlaying = false;
-        updatePlayBtn();
-        playerThumb.classList.remove('playing');
-    });
-
-    audio.addEventListener('ended', () => {
-        if (state.isRepeating) {
-            audio.currentTime = 0;
-            audio.play();
-        } else {
-            state.isPlaying = true; // keep playing mode for next
-            next();
-        }
-    });
-
-    // Volume
-    volumeInput.addEventListener('input', () => {
-        const v = volumeInput.value;
-        audio.volume = v / 100;
-        volumeFill.style.width = v + '%';
-        state.volume = v;
-        const icon = volBtn.querySelector('i');
-        if (v == 0) icon.className = 'fas fa-volume-xmark';
-        else if (v < 50) icon.className = 'fas fa-volume-low';
-        else icon.className = 'fas fa-volume-high';
-    });
-
-    // Volume mute toggle
-    volBtn.addEventListener('click', () => {
-        if (audio.volume > 0) {
-            state._savedVol = audio.volume;
-            audio.volume = 0;
-            volumeInput.value = 0;
-            volumeFill.style.width = '0%';
-        } else {
-            audio.volume = state._savedVol || 0.7;
-            volumeInput.value = (audio.volume * 100);
-            volumeFill.style.width = (audio.volume * 100) + '%';
-        }
-    });
-
-    // Sidebar toggle
-    $('sidebarToggle').addEventListener('click', () => {
-        const wrapper = document.querySelector('.app-wrapper');
-        if (window.innerWidth <= 768) {
-            wrapper.classList.toggle('sidebar-open');
-        } else {
-            wrapper.classList.toggle('sidebar-collapsed');
-        }
-    });
-
-    $('sidebarOverlay').addEventListener('click', () => {
-        document.querySelector('.app-wrapper').classList.remove('sidebar-open');
-    });
-
-    // Collapse when outside is clicked (PC & Mobile)
-    document.addEventListener('click', (e) => {
-        const wrapper = document.querySelector('.app-wrapper');
-        const sidebar = document.getElementById('sidebar');
-        const sidebarToggle = document.getElementById('sidebarToggle');
-        
-        if (window.innerWidth > 768) {
-            // PC: collapse if clicking outside sidebar
-            if (!wrapper.classList.contains('sidebar-collapsed') && 
-                !sidebar.contains(e.target) && 
-                !sidebarToggle.contains(e.target)) {
-                wrapper.classList.add('sidebar-collapsed');
-            }
-        }
-    });
-
-    // Nav buttons
-    $('navHome').addEventListener('click', () => {
-        showPage('home');
-        setNavActive('navHome');
-        // Clear filter
-        document.querySelectorAll('.album-nav-item').forEach(el => el.classList.remove('active'));
-        renderAllAlbumSections(); // Full list
-        document.querySelector('.app-wrapper').classList.remove('sidebar-open');
-    });
-
-    $('navLibrary').addEventListener('click', () => {
-        document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
-        $('pageLibrary').classList.add('active-page');
-        setNavActive('navLibrary');
-        document.querySelector('.app-wrapper').classList.remove('sidebar-open');
-    });
-
-    $('globalQueueAllBtn').addEventListener('click', () => {
-        state.queue = allTracks.map((t, i) => i);
-        renderQueue();
-        $('queuePanel').classList.add('open');
-        if (state.currentIndex === -1) next();
-    });
-
-    $('showQueueBtn').addEventListener('click', () => {
-        $('queuePanel').classList.toggle('open');
-        renderQueue();
-    });
-
-    $('closeQueueBtn').addEventListener('click', () => {
-        $('queuePanel').classList.remove('open');
-    });
-
-    $('clearQueueBtn').addEventListener('click', () => {
-        state.queue = [];
-        renderQueue();
-    });
-
-    // Search
-    setupSearch();
-
-    // Intersect observer: highlight sidebar album as you scroll
-    const sections = document.querySelectorAll('.album-section');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.id.replace('section-', '');
-                document.querySelectorAll('.album-nav-item').forEach(el => el.classList.remove('active'));
-                const sidebarItem = document.querySelector(`[data-album-id="${id}"]`);
-                if (sidebarItem) sidebarItem.classList.add('active');
+    // Drawer Toggle
+    if (drawerToggle && sidebar) {
+        drawerToggle.addEventListener('click', () => {
+            drawerToggle.classList.toggle('open');
+            sidebar.classList.toggle('open');
+            
+            const icon = drawerToggle.querySelector('i');
+            if (drawerToggle.classList.contains('open')) {
+                icon.className = 'fa-solid fa-chevron-left';
+            } else {
+                icon.className = 'fa-solid fa-chevron-right';
             }
         });
-    }, { threshold: 0.3, root: $('contentScroll') });
-
-    sections.forEach(s => observer.observe(s));
-}
-
-// ============================================================
-//  HELPERS
-// ============================================================
-function fmt(secs) {
-    if (!secs || isNaN(secs)) return '0:00';
-    const m = Math.floor(secs / 60);
-    const s = Math.floor(secs % 60);
-    return `${m}:${s < 10 ? '0' : ''}${s}`;
-}
-
-function renderQueue() {
-    const qList = document.getElementById('queueList');
-    if (!qList) return;
-    
-    if (state.queue.length === 0) {
-        qList.innerHTML = '<div style="padding:20px;color:var(--text-muted);font-size:14px;text-align:center;">Queue is empty</div>';
-        return;
     }
 
-    qList.innerHTML = '';
-    state.queue.forEach((idx, i) => {
-        const track = allTracks[idx];
-        if (!track) return;
-        
-        const item = document.createElement('div');
-        item.style.display = 'flex';
-        item.style.alignItems = 'center';
-        item.style.padding = '10px';
-        item.style.borderBottom = '1px solid var(--border)';
-        item.innerHTML = `
-            <div style="flex:1; min-width:0;">
-                <div style="font-size:13px; font-weight:600; color:var(--text-primary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${track.title}</div>
-                <div style="font-size:11px; color:var(--text-muted);">${track.artist}</div>
-            </div>
-            <button class="queue-item-remove" style="background:none;border:none;color:var(--text-muted);cursor:pointer;padding:4px;" title="Remove">
-                <i class="fas fa-times"></i>
-            </button>
-        `;
-        
-        item.querySelector('.queue-item-remove').addEventListener('click', (e) => {
-            e.stopPropagation();
-            state.queue.splice(i, 1);
-            renderQueue();
+    // Sticker Drag & Click Logic
+    if (stickerWrapper && dynamicSticker) {
+        let isDraggingSticker = false;
+        let startX, startY;
+        let initialTop, initialLeft;
+
+        const startDrag = (clientX, clientY) => {
+            isDraggingSticker = true;
+            if (pickMeTooltip) pickMeTooltip.style.display = 'none';
+            
+            const style = window.getComputedStyle(stickerWrapper);
+            initialLeft = parseInt(style.left, 10) || 0;
+            initialTop = parseInt(style.top, 10) || 0;
+            
+            startX = clientX;
+            startY = clientY;
+            
+            stickerWrapper.style.transition = 'none';
+        };
+
+        const onDrag = (clientX, clientY) => {
+            if (!isDraggingSticker) return;
+            const dx = clientX - startX;
+            const dy = clientY - startY;
+            stickerWrapper.style.left = (initialLeft + dx) + 'px';
+            stickerWrapper.style.top = (initialTop + dy) + 'px';
+        };
+
+        const endDrag = (clientX, clientY) => {
+            if (!isDraggingSticker) return;
+            isDraggingSticker = false;
+            stickerWrapper.style.transition = '';
+            
+            const dx = Math.abs(clientX - startX);
+            const dy = Math.abs(clientY - startY);
+            
+            if (dx < 5 && dy < 5) {
+                if (sidebar && !sidebar.classList.contains('open') && drawerToggle) {
+                    drawerToggle.click();
+                }
+            }
+        };
+
+        // Mouse Events
+        stickerWrapper.addEventListener('mousedown', (e) => startDrag(e.clientX, e.clientY));
+        window.addEventListener('mousemove', (e) => onDrag(e.clientX, e.clientY));
+        window.addEventListener('mouseup', (e) => endDrag(e.clientX, e.clientY));
+
+        // Touch Events
+        stickerWrapper.addEventListener('touchstart', (e) => startDrag(e.touches[0].clientX, e.touches[0].clientY), {passive: false});
+        window.addEventListener('touchmove', (e) => {
+            if (isDraggingSticker) e.preventDefault();
+            onDrag(e.touches[0].clientX, e.touches[0].clientY);
+        }, {passive: false});
+        window.addEventListener('touchend', (e) => {
+            if (e.changedTouches.length > 0) {
+                endDrag(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+            } else {
+                endDrag(startX, startY); // Fallback if lost
+            }
         });
-        
-        qList.appendChild(item);
+    }
+
+    // Queue Floating Toggle
+    if (queueToggleBtn && queueCloseBtn && queueFloating) {
+        queueToggleBtn.addEventListener('click', () => {
+            queueFloating.classList.add('open');
+            queueToggleBtn.classList.add('hide');
+        });
+        queueCloseBtn.addEventListener('click', () => {
+            queueFloating.classList.remove('open');
+            queueToggleBtn.classList.remove('hide');
+        });
+    }
+
+    // Play / Pause Buttons
+    playBtn.addEventListener('click', () => {
+        if (!currentAlbum) return;
+        audio.play().catch(console.error);
     });
+    
+    pauseBtn.addEventListener('click', () => {
+        audio.pause();
+    });
+    
+    // Prev / Next Buttons
+    prevBtn.addEventListener('click', playPrev);
+    nextBtn.addEventListener('click', playNext);
+
+    // Stop Button
+    stopBtn.addEventListener('click', () => {
+        audio.pause();
+        audio.currentTime = 0;
+        toggleAnimation('paused');
+    });
+
+    // Switch Button (Sequential Album)
+    switchBtn.addEventListener('click', () => {
+        if (albums.length === 0) return;
+        let currentIdx = albums.findIndex(a => a.id === currentAlbum?.id);
+        let nextIdx = (currentIdx + 1) % albums.length;
+        loadAlbumCassette(albums[nextIdx], true);
+    });
+    
+    // Audio Events
+    audio.addEventListener('play', () => {
+        isPlaying = true;
+        playBtn.style.display = 'none';
+        pauseBtn.style.display = 'flex';
+        toggleAnimation('running');
+    });
+    
+    audio.addEventListener('pause', () => {
+        isPlaying = false;
+        playBtn.style.display = 'flex';
+        pauseBtn.style.display = 'none';
+        toggleAnimation('paused');
+    });
+    
+    audio.addEventListener('ended', playNext);
+    
+    
+
+    // Volume Knob Drag Logic
+    let isDraggingKnob = false;
+
+    const updateKnobVol = (vol) => {
+        audio.volume = vol;
+        savedVolume = vol;
+        const deg = -135 + (vol * 270);
+        volumeKnob.style.transform = `rotate(${deg}deg)`;
+    };
+    updateKnobVol(audio.volume);
+
+    const handleKnobDragStart = () => {
+        isDraggingKnob = true;
+    };
+
+    const handleKnobDragEnd = () => {
+        isDraggingKnob = false;
+    };
+
+    const handleKnobDragMove = (clientX, clientY) => {
+        if (!isDraggingKnob) return;
+
+        const rect = volumeKnobContainer.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        let dx = clientX - centerX;
+        let dy = clientY - centerY;
+
+        let angle = Math.atan2(dx, -dy) * (180 / Math.PI);
+        if (angle < -135) angle = -135;
+        if (angle > 135) angle = 135;
+
+        let vol = (angle + 135) / 270;
+
+        if (clientY > centerY && Math.abs(dx) < rect.width / 2) {
+             if (dx < 0) { vol = 0; } else { vol = 1; }
+        }
+
+        if (vol < 0) vol = 0;
+        if (vol > 1) vol = 1;
+
+        updateKnobVol(vol);
+    };
+
+    // Mouse Events
+    volumeKnobContainer.addEventListener('mousedown', handleKnobDragStart);
+    window.addEventListener('mouseup', handleKnobDragEnd);
+    window.addEventListener('mousemove', (e) => handleKnobDragMove(e.clientX, e.clientY));
+
+    // Touch Events
+    volumeKnobContainer.addEventListener('touchstart', handleKnobDragStart, {passive: false});
+    window.addEventListener('touchend', handleKnobDragEnd);
+    window.addEventListener('touchmove', (e) => {
+        if (isDraggingKnob) e.preventDefault();
+        if (e.touches.length > 0) {
+            handleKnobDragMove(e.touches[0].clientX, e.touches[0].clientY);
+        }
+    }, {passive: false});
 }
